@@ -47,11 +47,13 @@
             terrainSource: {
               type: "raster-dem",
               tiles:["https://cyberjapandata.gsi.go.jp/xyz/demgm_png/{z}/{x}/{y}.png"],
+              attribution: "Global Map Global Elevation v2",
               tileSize: 256,
             },
             hillshadeSource: {
               type: "raster-dem",
               tiles:["https://cyberjapandata.gsi.go.jp/xyz/demgm_png/{z}/{x}/{y}.png"],
+              attribution: "Global Map Global Elevation v2",
               tileSize: 256,
             },
           },
@@ -74,7 +76,7 @@
             exaggeration: 1,
           },
         },
-        maxZoom: 17,
+        maxZoom: 14,
         maxPitch: 85,
       }));
 
