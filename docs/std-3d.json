@@ -783,5 +783,5 @@
     ],
     "terrain":{
         "source":"terrainSource",
-        "exaggertaion":1
+        "exaggeration":1
     },"sprite":"https://gsi-cyberjapan.github.io/gsivectortile-mapbox-gl-js/sprite/std","metadata":{"gsimaps-vector-url":"https://maps.gsi.go.jp/vector/#7/36.104611/140.084556/&ls=&disp=&d=l","center":{"lng":140.084556,"lat":36.104611},"zl":7}}
