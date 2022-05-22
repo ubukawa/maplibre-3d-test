@@ -1,8 +1,8 @@
 {"version":8,"glyphs":"https://maps.gsi.go.jp/xyz/noto-jp/{fontstack}/{range}.pbf",
     "sources":{
         "gsibv-vectortile-source-1-4-16":{"type":"vector","tiles":["https://cyberjapandata.gsi.go.jp/xyz/experimental_bvmap/{z}/{x}/{y}.pbf"],"minzoom":4,"maxzoom":16,"attribution":"<a href=\"https://maps.gsi.go.jp/vector/\" target=\"_blank\">地理院地図Vector（仮称）</a>"},
-        "terrainSource":{"type":"raster-dem","url":"https://cyberjapandata.gsi.go.jp/xyz/demgm_png/{z}/{x}/{y}.png","attribution":"Global Map Elevation v2","tileSize": 256},
-        "hillshadeSource":{"type":"raster-dem","url":"https://cyberjapandata.gsi.go.jp/xyz/demgm_png/{z}/{x}/{y}.png","attribution":"Global Map Elevation v2","tileSize":256 }
+        "terrainSource":{"type":"raster-dem","tiles":["https://cyberjapandata.gsi.go.jp/xyz/demgm_png/{z}/{x}/{y}.png"],"attribution":"Global Map Elevation v2","tileSize": 256},
+        "hillshadeSource":{"type":"raster-dem","tiles":["https://cyberjapandata.gsi.go.jp/xyz/demgm_png/{z}/{x}/{y}.png"],"attribution":"Global Map Elevation v2","tileSize":256 }
     },
     "layers":[
     {"id":"gsibv-vectortile-layer-761","type":"line","source":"gsibv-vectortile-source-1-4-16","source-layer":"structurel","metadata":{"layer-id":"layer-577","title":"坑口","path":"構造物-坑口","added":1},"minzoom":14,"maxzoom":17,"filter":["all",["in","ftCode",4202]],"layout":{"line-cap":"square","visibility":"visible"},"paint":{"line-color":"rgba(100,100,100,1)","line-width":1.5}},
