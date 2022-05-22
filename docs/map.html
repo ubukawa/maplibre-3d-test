@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Display a map - GSI Maps Vector (std)</title>
-<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-<script src="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.js"></script>
-<link href="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.css" rel="stylesheet" />
+<title>MapLibre GM JS Terrain 3D with GSI Maps Vector (std)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<script src="https://ubukawa.github.io/maplibre-3d-test/maplibre-gl.js"></script>
+<link href="https://ubukawa.github.io/maplibre-3d-test/maplibre-gl.css" rel="stylesheet" />
 <style>
 	body { margin: 0; padding: 0; }
-	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+	#map { height: 100%; }
 </style>
 </head>
 <body>
@@ -20,13 +20,29 @@ style: 'https://gsi-cyberjapan.github.io/gsivectortile-mapbox-gl-js/std.json', /
 center: [140.084556, 36.104611], // starting position [lng, lat]
 zoom: 7, // starting zoom
 minZoom: 4, // min zoom of map
-maxZoom: 17 // max zoom of map
+maxZoom: 17, // max zoom of map
+pitch: 52,
+hash: true,
+maxPitch: 85
 });
 
 //UI
-map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
+map.addControl(
+        new maplibregl.NavigationControl({
+          visualizePitch: true,
+          showZoom: true,
+          showCompass: true,
+        })
+      );
 map.addControl(new maplibregl.GeolocateControl({positionOptions: {enableHighAccuracy: true},trackUserLocation: true}), 'top-right');
 map.addControl(new maplibregl.ScaleControl() );
+map.addControl(
+        new maplibregl.TerrainControl({
+          source: "terrainSource",
+          exaggeration: 1,
+        })
+      );
+
 //map.addControl(new maplibregl.AttributionControl({customAttribution: "custom attribution" })); // you can add
 
 //debug
