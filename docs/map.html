@@ -14,7 +14,7 @@
 <body>
 <div id="map"></div>
 <script>
-var map = new maplibregl.Map({
+var map = (window.map = new maplibregl.Map({
 container: 'map', // container id
 style: 'https://ubukawa.github.io/maplibre-3d-test/std-3d.json', // style URL
 center: [140.084556, 36.104611], // starting position [lng, lat]
@@ -24,7 +24,7 @@ maxZoom: 17, // max zoom of map
 pitch: 52,
 hash: true,
 maxPitch: 85
-});
+}));
 
 //UI
 map.addControl(
