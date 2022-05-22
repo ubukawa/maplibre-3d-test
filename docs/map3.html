@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MapLibre GL JS Terrain3D test -landsat map</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <script src="https://ubukawa.github.io/maplibre-3d-test/maplibre-gl.js"></script>
+    <link href="https://ubukawa.github.io/maplibre-3d-test/maplibre-gl.css" rel="stylesheet" />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body,
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <script>
+      var map = (window.map = new maplibregl.Map({
+        container: "map",
+        zoom: 12,
+        center: [140.084556, 36.104611],
+        pitch: 52,
+        hash: true,
+        style: {
+          version: 8,
+          sources: {
+            landsat: {
+              type: "raster",
+              tiles: ["https://ubukawa.github.io/Landsat9-Tokyo20211117/107035_20211117/{z}/{x}/{y}.png"],
+              tileSize: 256,
+              attribution: "Landsat-9 image courtesy of the U.S. Geological Survey",
+              maxzoom: 14,
+            },
+            terrainSource: {
+              type: "raster-dem",
+              url: "https://demotiles.maplibre.org/terrain-tiles/tiles.json",
+              tileSize: 256,
+            },
+            hillshadeSource: {
+              type: "raster-dem",
+              url: "https://demotiles.maplibre.org/terrain-tiles/tiles.json",
+              tileSize: 256,
+            },
+          },
+          layers: [
+            {
+              id: "landsat",
+              type: "raster",
+              source: "landsat",
+            },
+            {
+              id: "hills",
+              type: "hillshade",
+              source: "hillshadeSource",
+              layout: { visibility: "visible" },
+              paint: { "hillshade-shadow-color": "#473B24" },
+            },
+          ],
+          terrain: {
+            source: "terrainSource",
+            exaggeration: 1,
+          },
+        },
+        maxZoom: 14,
+        maxPitch: 85,
+      }));
+
+      map.addControl(
+        new maplibregl.NavigationControl({
+          visualizePitch: true,
+          showZoom: true,
+          showCompass: true,
+        })
+      );
+
+      map.addControl(
+        new maplibregl.TerrainControl({
+          source: "terrainSource",
+          exaggeration: 1,
+        })
+      );
+    </script>
+  </body>
+</html>
