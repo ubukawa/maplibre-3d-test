@@ -6,6 +6,7 @@
       "ne-test": {
         "type": "vector",
         "tiles": ["https://ubukawa.github.io/vt-test/ne-test/{z}/{x}/{y}.pbf"],
+        "attribution": "NaturalEarth",
         "minzoom": 0,
         "maxzoom": 5
       },
