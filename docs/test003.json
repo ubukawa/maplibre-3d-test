@@ -79,7 +79,7 @@
     ],
     "terrain":{
       "source": "terrainSource",
-      "exaggeration": 1
+      "exaggeration": 0.1
     },
     "id": "o8m1gme9z"
   }
